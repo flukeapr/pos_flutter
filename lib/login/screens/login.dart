@@ -10,16 +10,21 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    final widthButton = MediaQuery.of(context).size.width - 20;
-    final primaryColor = Theme.of(context).primaryColor;
-    final secondary = Theme.of(context).colorScheme.secondary;
-    final screenHeight = MediaQuery.of(context).size.height;
-    final spacing = screenHeight * 0.08;
+    final double widthButton = MediaQuery.of(context).size.width - 20;
+    final Color primaryColor = Theme.of(context).primaryColor;
+    final Color secondary = Theme.of(context).colorScheme.secondary;
+    final double screenHeight  = MediaQuery.of(context).size.height;
+    final double spacing = screenHeight * 0.08;
+    final TextStyle boldUnderLine = const TextStyle(
+      fontWeight: FontWeight.bold,
+      decoration: TextDecoration.underline,
+   
+    );
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: Text(
+          title:  Text(
             "Welcome",
             style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -32,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Navigator.pop(context);
               },
               icon: Container(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(6),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: primaryColor,
@@ -51,23 +56,42 @@ class _LoginScreenState extends State<LoginScreen> {
             //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+               
                 Text("Welcome to POS !",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
                       color: secondary,
                     )),
-                Row(children: [
-                  Text("Select I am an "),
-                  Text(
-                    "owner ",
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      fontWeight: FontWeight.bold,
-                    ),
+                 Text.rich(TextSpan(
+                  style: TextStyle(
+                    fontSize: 18,
                   ),
-                  Text("or I am an employee to start"),
-                ]),
+                  text: "Select ",
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: "I am an owner ",
+                      style: TextStyle(
+                        color: primaryColor,
+                        decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.bold,
+                        decorationColor: primaryColor,
+                      ),
+                    ),
+                    TextSpan(text: "or "),
+                    TextSpan(
+                      text: " I am an employee",
+                      style: TextStyle(
+                        color: primaryColor,
+                        decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.bold,
+                        decorationColor: primaryColor,
+                      ),
+                      ),
+                     TextSpan(text: " to start"),
+                  ] 
+                )),
+               
               ]),
              SizedBox(height: spacing), 
               Center(
@@ -149,7 +173,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
-                SizedBox(height: spacing), 
+                SizedBox(height: spacing - 50), 
               Container(
                 //margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                 alignment: Alignment.center,
