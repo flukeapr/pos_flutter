@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 class ButtonIcon extends StatelessWidget {
   final IconData icon;
+  final VoidCallback? onPressed;
   const ButtonIcon({
     super.key,
     required this.icon,
+    this.onPressed,
   });
 
   @override
@@ -24,7 +26,7 @@ class ButtonIcon extends StatelessWidget {
       ),
       width: widthScreen * 0.15,
       child: IconButton(
-        onPressed: () {},
+        onPressed: onPressed,
         icon: Icon(
           icon,
           color: secondary,

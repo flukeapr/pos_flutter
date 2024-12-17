@@ -5,6 +5,7 @@ import 'package:pos_flutter/home/screens/favorite.dart';
 import 'package:pos_flutter/home/screens/home_body.dart';
 import 'package:pos_flutter/home/screens/receipt.dart';
 import 'package:pos_flutter/home/widget/buttonIcon.dart';
+import 'package:pos_flutter/home/widget/drawerHome.dart';
 import 'package:pos_flutter/home/widget/listDrawer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -45,67 +46,37 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: Color(0xFFF4F6FA),
-      drawer: Drawer(
-        backgroundColor: primaryColor,
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 40),
-              height: 200,
-              child: Column(
-                children: [
-                  Row(children: [
-                    IconButton(
-                      color: Colors.white,
-                      onPressed: (){},
-                      icon: Icon(
-                        Icons.flag,
-                        color: primaryColor,
-                        size: 30,
-                      ),
-                    ),
-                    Text("POS", style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),)  
-                  ],)
-                ]
-              ),
-              ),
-              
-  
-            Divider(
-              color: Colors.grey.shade300,
-              thickness: 1,
-              indent: 10,
-              endIndent: 10,
-            ),
-            ListDrawer(title: 'Cashier', icon: Icons.smart_screen),
-            ListDrawer(title: 'History Transaction', icon: Icons.paid),
-            ListDrawer(title: 'Report', icon: Icons.pie_chart),
-            ListDrawer(title: 'Manage Store', icon: Icons.store),
-            ListDrawer(title: 'Account', icon: Icons.person_outline),
-            ListDrawer(title: 'Support', icon: Icons.support),
-            
-            Container(
-              child: Row(
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.cached,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ],
+      drawer: DrawerHome(),
+      
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        toolbarHeight: 70,
+        title: Text(
+          "Cashier",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
+            color: primaryColor,
+          ),
+        ),
+        iconTheme: IconThemeData(color: primaryColor),
+        leading: IconButton(
+          onPressed: () {
+            _openDrawer();
+          },
+          icon: Icon(
+            Icons.menu,
+            color: primaryColor,
+            size: 30,
+          ),
         ),
       ),
+      body: _page[_selectedIndex],
       bottomNavigationBar: ClipRRect(
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
+            topLeft: Radius.circular(40),
+            topRight: Radius.circular(40),
           ),
           child: Container(
             decoration: BoxDecoration(
@@ -161,32 +132,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 )),
-          )),
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        toolbarHeight: 80,
-        title: Text(
-          "Cashier",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 30,
-            color: primaryColor,
+          )
           ),
-        ),
-        iconTheme: IconThemeData(color: primaryColor),
-        leading: IconButton(
-          onPressed: () {
-            _openDrawer();
-          },
-          icon: Icon(
-            Icons.menu,
-            color: primaryColor,
-            size: 30,
-          ),
-        ),
-      ),
-      body: _page[_selectedIndex],
     );
   }
 }
