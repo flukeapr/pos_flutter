@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:pos_flutter/signUp/model/model_signUp.dart';
+import 'dart:developer' as developer;
+
+import 'package:pos_flutter/widget/customButton.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -9,17 +14,31 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   bool _obscureText = true;
+  String _email = '';
+  String _phone = '';
   String _password = '';
-  void _toggle() {
+  final _formKey = GlobalKey<FormState>();
+
+  void _submitForm() {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      User newUser = User(email: _email, phone: _phone, password: _password);
+      developer.log('newUser: $newUser');
+    }
+  }
+
+  void _toggleEye() {
     setState(() {
       _obscureText = !_obscureText;
     });
   }
+
   @override
   Widget build(BuildContext context) {
-    final widthButton = MediaQuery.of(context).size.width - 20;
     final primaryColor = Theme.of(context).primaryColor;
     final secondary = Theme.of(context).colorScheme.secondary;
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double spacing = (screenHeight * 0.08) - 30;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -51,59 +70,116 @@ class _SignupScreenState extends State<SignupScreen> {
       body: Container(
         width: double.infinity,
         padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Email",
+                      style: TextStyle(color: secondary, fontSize: 16,fontWeight:  FontWeight.w500),
+                    ),
+                    const SizedBox(height: 8),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide.none,
+                        ),
+                        fillColor: Colors.grey.shade200,
+                        filled: true,
+                        hintText: "Email",
+                        contentPadding: const EdgeInsets.all(20),
+                      ),
+                      validator:(value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your email';
+                        } else if (!value.contains('@')) {
+                          return 'Please enter a valid email';
+                        }
+                        return null;
+                      },
+                      onSaved: (newValue) => _email = newValue!,
+                    ),
+                  ],
                 ),
-                labelText: 'Email',
               ),
-            ),
-            const SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Phone Number",
+                      style: TextStyle(color: secondary, fontSize: 16,fontWeight:  FontWeight.w500),
+                    ),
+                    const SizedBox(height: 8),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide.none,
+                        ),
+                        fillColor: Colors.grey.shade200,
+                        filled: true,
+                        hintText: "XXX-XXX-XXXX",
+                        contentPadding: const EdgeInsets.all(20),
+                      ),
+                      keyboardType: TextInputType.phone,
+                      onSaved: (newValue) => _phone = newValue!,
+                    ),
+                  ],
                 ),
-                labelText: 'Phone Number',
-              ),
-            ),
-            const SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                labelText: 'Password',
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    _obscureText ? Icons.visibility_off : Icons.visibility,
-                    color: secondary,
+              ), 
+               Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Password",
+                      style: TextStyle(color: secondary, fontSize: 16,fontWeight:  FontWeight.w500),
+                    ),
+                    const SizedBox(height: 8),
+                   TextFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide.none,
+                    ),
+                    hintText: "************",
+                    fillColor: Colors.grey.shade200,
+                    filled: true,
+                    contentPadding: const EdgeInsets.all(20),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _obscureText
+                            ? Icons.visibility_off_outlined
+                            : Icons.visibility,
+                        color: secondary,
+                      ),
+                      onPressed: _toggleEye,
+                    ),
                   ),
-                  onPressed: _toggle,
+                  obscureText: _obscureText,
+                  onSaved: (newValue) => _password = newValue!,
                 ),
-              ),
-              obscureText: _obscureText,
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: primaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  ],
                 ),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              ),
-              onPressed: () {},
-              child: const Text(
-                'Sign Up',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
+              ),      
+              
+              SizedBox(height: spacing),
+              CustomButton(
+                  text: "Create Account",
+                  onPressed: _submitForm,
+                  isOutlined: false,
+                  primaryColor: primaryColor),
+            ],
+          ),
         ),
       ),
     );

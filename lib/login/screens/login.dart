@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pos_flutter/login/screens/login_employee.dart';
+import 'package:pos_flutter/login/screens/login_owner.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -108,7 +110,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             backgroundColor: primaryColor,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15))),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginOwnerScreen()));
+                        },
                         icon: Row(
                           children: [
                             SizedBox(width: 40),
@@ -147,7 +151,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             backgroundColor: primaryColor,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15))),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginEmployeeScreen()));
+                        },
                         icon: Row(
                           children: [
                             SizedBox(width: 40),
