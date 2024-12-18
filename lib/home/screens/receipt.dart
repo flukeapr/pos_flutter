@@ -11,5 +11,5 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
-  }
+  }        
 }

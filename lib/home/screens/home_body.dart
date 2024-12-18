@@ -59,30 +59,28 @@ class _HomeBodyState extends State<HomeBody> {
               widthScreen, secondary, _crossAxisCount, changeLayout, context),
           // Product Grid/List View
           Expanded(
-            child: Container(
-              padding: const EdgeInsets.all(20),
-              child: GridView.builder(
-                shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: _crossAxisCount,
-                  crossAxisSpacing: 14,
-                  mainAxisSpacing: 20,
-                  childAspectRatio: _childAspectRatio,
-                ),
-                itemCount: FoodData.foodList.length,
-                itemBuilder: (context, index) {
-                  FoodModel food = FoodData.foodList[index];
-                  return ProductCard(
-                    cartModel: cartModel,
-                    food: food,
-                    index: index,
-                    crossAxisCount: _crossAxisCount,
-                    primaryColor: primaryColor,
-                    secondary: secondary,
-                    onAddToCart: () => addToCart(food),
-                  );
-                },
+            child: GridView.builder(
+              padding: const EdgeInsets.all(16),
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: _crossAxisCount,
+                crossAxisSpacing: 14,
+                mainAxisSpacing: 20,
+                childAspectRatio: _childAspectRatio,
               ),
+              itemCount: FoodData.foodList.length,
+              itemBuilder: (context, index) {
+                FoodModel food = FoodData.foodList[index];
+                return ProductCard(
+                  cartModel: cartModel,
+                  food: food,
+                  index: index,
+                  crossAxisCount: _crossAxisCount,
+                  primaryColor: primaryColor,
+                  secondary: secondary,
+                  onAddToCart: () => addToCart(food),
+                );
+              },
             ),
           ),
           CartButton(
