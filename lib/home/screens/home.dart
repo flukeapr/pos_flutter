@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pos_flutter/home/model/cart_model.dart';
 import 'package:pos_flutter/home/screens/favorite.dart';
 import 'package:pos_flutter/home/screens/home_body.dart';
 import 'package:pos_flutter/home/screens/receipt.dart';
@@ -14,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
+  CartModel cartModel = CartModel();
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
