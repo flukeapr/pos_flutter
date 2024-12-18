@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pos_flutter/home/data/food_data.dart';
-import 'package:pos_flutter/home/model/food_model.dart';
 import 'package:pos_flutter/home/screens/favorite.dart';
 import 'package:pos_flutter/home/screens/home_body.dart';
 import 'package:pos_flutter/home/screens/receipt.dart';
-import 'package:pos_flutter/home/widget/buttonIcon.dart';
 import 'package:pos_flutter/home/widget/drawerHome.dart';
-import 'package:pos_flutter/home/widget/listDrawer.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -30,17 +27,11 @@ class _HomeScreenState extends State<HomeScreen> {
     _scaffoldKey.currentState!.openDrawer();
   }
 
-  void _closeDrawer() {
-    Navigator.of(context).pop();
-  }
+
 
   @override
   Widget build(BuildContext context) {
-    final double widthButton = MediaQuery.of(context).size.width - 20;
     final Color primaryColor = Theme.of(context).primaryColor;
-    final Color secondary = Theme.of(context).colorScheme.secondary;
-    final double screenHeight = MediaQuery.of(context).size.height;
-    final double spacing = screenHeight * 0.08;
     final List<Widget> _page = [HomeBody(), FavoriteScreen(), ReceiptScreen()];
 
     return Scaffold(
