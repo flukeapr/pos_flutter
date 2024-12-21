@@ -178,7 +178,6 @@ class _ProductCardState extends State<ProductCard> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          if (widget.index == 0 || widget.index == 3)
                             Text(
                               "(Must choose level)",
                               style: TextStyle(

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pos_flutter/Colors/appColors.dart';
 import 'package:pos_flutter/provider/cart_provider.dart';
 import 'package:pos_flutter/screens/home/data/food_data.dart';
-import 'package:pos_flutter/screens/home/model/cart_model.dart';
 import 'package:pos_flutter/screens/home/model/food_model.dart';
 import 'package:pos_flutter/screens/home/widget/buttonIcon.dart';
 import 'package:pos_flutter/screens/home/widget/cartButton.dart';
@@ -19,7 +18,6 @@ class HomeBody extends StatefulWidget {
 class _HomeBodyState extends State<HomeBody> {
   int _crossAxisCount = 2;
   double _childAspectRatio = 1;
-  CartModel cartModel = CartModel();
   @override
   void initState() {
     super.initState();
@@ -40,14 +38,10 @@ class _HomeBodyState extends State<HomeBody> {
     });
   }
 
-  void addToCart(FoodModel food) {
-    
-  }
-
   @override
   Widget build(BuildContext context) {
     final double widthScreen = MediaQuery.of(context).size.width;
-    final cartModel = context.watch<CartProvider>();
+    final cartProvider = context.watch<CartProvider>();
     return Container(
       alignment: Alignment.topCenter,
       padding: const EdgeInsets.only(top: 1),
@@ -81,7 +75,7 @@ class _HomeBodyState extends State<HomeBody> {
                   primaryColor: AppColors.primaryColor,
                   secondary: AppColors.secondaryColor,
                   onAddToCart: (){
-                    cartModel.addToCart(food);
+                    cartProvider.addToCart(food);
                   },
                 );
               },

@@ -6,19 +6,36 @@ class CartProvider extends ChangeNotifier{
 
 
   void addToCart(FoodModel foodModel) {
+    final exitingFood = cartList.firstWhere(
+      (food)=> food.id == foodModel.id,
+      orElse: () => FoodModel( id: 0, name: '', image: '', price: 0.0, quantity: 0),
+    );
+
+    if (exitingFood.quantity > 0) {
+      exitingFood.quantity++;
+    }else{
     cartList.add(foodModel);
+    }
     notifyListeners();
   }
 
   void removeFromCart(FoodModel foodModel) {
-    cartList.remove(foodModel);
+     final existingFood = cartList.firstWhere(
+    (food) => food.id == foodModel.id,
+    orElse: () => FoodModel(name: '', id: 0, image: '', price: 0.0, quantity: 0),
+  );
+  if (existingFood.quantity > 1) {
+    existingFood.quantity = existingFood.quantity - 1; 
+  } else {
+    cartList.remove(existingFood); 
+  }
     notifyListeners();
   }
 
   double getTotalPrice() {
     double total = 0.0;
-    for (int i = 0; i < cartList.length; i++) {
-      total += cartList[i].price;
+    for (var food in cartList) {
+      total += food.price * food.quantity;
     }
     return total;
   }
@@ -29,6 +46,10 @@ class CartProvider extends ChangeNotifier{
   }
 
   int getCount() {
-    return cartList.length;
+    int totalCount = 0;
+    for (var food in cartList) {
+      totalCount += food.quantity;
+    }
+    return totalCount;
   }
 }

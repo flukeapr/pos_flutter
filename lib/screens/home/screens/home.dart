@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pos_flutter/Colors/appColors.dart';
-import 'package:pos_flutter/screens/home/model/cart_model.dart';
 import 'package:pos_flutter/screens/home/screens/favorite.dart';
 import 'package:pos_flutter/screens/home/screens/home_body.dart';
 import 'package:pos_flutter/screens/home/screens/receipt.dart';
 import 'package:pos_flutter/screens/home/widget/drawerHome.dart';
-
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,7 +14,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  CartModel cartModel = CartModel();
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -29,8 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
     _scaffoldKey.currentState!.openDrawer();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     final List<Widget> _page = [HomeBody(), FavoriteScreen(), ReceiptScreen()];
@@ -39,7 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
       key: _scaffoldKey,
       backgroundColor: Color(0xFFF4F6FA),
       drawer: DrawerHome(),
-      
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
@@ -124,8 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 )),
-          )
-          ),
+          )),
     );
   }
 }

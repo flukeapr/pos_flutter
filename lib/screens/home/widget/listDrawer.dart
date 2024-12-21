@@ -14,7 +14,7 @@ class ListDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Container(
-        margin: const EdgeInsets.symmetric(vertical: 6),
+        margin: const EdgeInsets.symmetric(vertical: 4),
         child: Row(
           children: [
             SizedBox(width: 12),

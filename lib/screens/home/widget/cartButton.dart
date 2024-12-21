@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pos_flutter/provider/cart_provider.dart';
 import 'package:intl/intl.dart';
+import 'package:pos_flutter/screens/home/screens/cart.dart';
 import 'package:provider/provider.dart';
 
 // ? cart button slide bottom grid view when add to cart item list
@@ -13,13 +14,12 @@ class CartButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cartModel = context.watch<CartProvider>();
+    final cartProvider = context.watch<CartProvider>();
     return AnimatedSlide(
-            offset: cartModel.getCount() > 0 ? Offset(0, 0) : Offset(0, 1), 
+            offset: cartProvider.getCount() > 0 ? Offset(0, 0) : Offset(0, 1), 
             duration: Duration(milliseconds: 300),
-          
             child: Visibility(
-              visible: cartModel.getCount() > 0,
+              visible: cartProvider.getCount() > 0,
               child: Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(10),
@@ -31,13 +31,16 @@ class CartButton extends StatelessWidget {
                     ),
                     padding: const EdgeInsets.all(20),
                   ),
-                  onPressed: (){}, 
+                  onPressed: (){
+                  
+                     Navigator.push(context, MaterialPageRoute(builder: (context) => CartScreen()));
+                  }, 
                   child: Row(
                     children: [
                       Icon(Icons.local_grocery_store_outlined, color: Colors.white,size: 30,),
                       SizedBox(width: 10,),
                       Text(
-                        "${cartModel.getCount()} Items ",
+                        "${cartProvider.getCount()} Items ",
                         style: TextStyle(
                           fontSize: 22,
                           color: Colors.white,
@@ -46,7 +49,7 @@ class CartButton extends StatelessWidget {
                       ),
                       Spacer(),
                       Text(
-                        "Total: ฿ ${NumberFormat('#,###.00').format(cartModel.getTotalPrice())}",
+                        "Total: ฿ ${NumberFormat('#,###.00').format(cartProvider.getTotalPrice())}",
                         style: TextStyle(
                           fontSize: 22,
                           color: Colors.white,
