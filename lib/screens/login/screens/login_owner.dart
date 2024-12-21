@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pos_flutter/home/screens/home.dart';
 import 'package:pos_flutter/login/model/login_model.dart';
-import 'package:pos_flutter/login/widget/buttonOTP.dart';
-import 'package:pos_flutter/login/widget/textfieldLogin.dart';
+import 'package:pos_flutter/screens/login/widget/buttonOTP.dart';
+import 'package:pos_flutter/screens/login/widget/textfieldLogin.dart';
 import 'dart:developer' as developer;
 
 import 'package:pos_flutter/widget/customButton.dart';

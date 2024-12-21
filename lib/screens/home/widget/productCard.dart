@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:pos_flutter/home/model/cart_model.dart';
-import 'package:pos_flutter/home/model/food_model.dart';
+import 'package:pos_flutter/screens/home/model/cart_model.dart';
+import 'package:pos_flutter/screens/home/model/food_model.dart';
 
 class ProductCard extends StatefulWidget {
   final FoodModel food;

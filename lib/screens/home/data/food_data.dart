@@ -1,4 +1,4 @@
-import 'package:pos_flutter/home/model/food_model.dart';
+import 'package:pos_flutter/screens/home/model/food_model.dart';
 
 class FoodData {
   static FoodModel saladTuna = FoodModel(

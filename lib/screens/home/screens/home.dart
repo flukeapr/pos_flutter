@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pos_flutter/home/model/cart_model.dart';
 import 'package:pos_flutter/home/screens/favorite.dart';
-import 'package:pos_flutter/home/screens/home_body.dart';
-import 'package:pos_flutter/home/screens/receipt.dart';
-import 'package:pos_flutter/home/widget/drawerHome.dart';
+import 'package:pos_flutter/screens/home/screens/home_body.dart';
+import 'package:pos_flutter/screens/home/screens/receipt.dart';
+import 'package:pos_flutter/screens/home/widget/drawerHome.dart';
 
 
 class HomeScreen extends StatefulWidget {

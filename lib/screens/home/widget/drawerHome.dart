@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pos_flutter/home/widget/listDrawer.dart';
+import 'package:pos_flutter/screens/home/widget/listDrawer.dart';
 
 class DrawerHome extends StatelessWidget {
   const DrawerHome({super.key});

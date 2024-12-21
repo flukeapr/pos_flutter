@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pos_flutter/signUp/model/model_signUp.dart';
+import 'package:pos_flutter/screens/signUp/model/model_signUp.dart';
 import 'dart:developer' as developer;
 
 import 'package:pos_flutter/widget/customButton.dart';

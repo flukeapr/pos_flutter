@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pos_flutter/onBoarding/screens/onBoarding.dart';
+import 'package:pos_flutter/screens/onBoarding/screens/onBoarding.dart';
 import 'package:pos_flutter/provider/cart_provider.dart';
 import 'package:provider/provider.dart';
 

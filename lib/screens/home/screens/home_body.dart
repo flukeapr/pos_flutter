@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pos_flutter/home/data/food_data.dart';
-import 'package:pos_flutter/home/model/cart_model.dart';
-import 'package:pos_flutter/home/model/food_model.dart';
-import 'package:pos_flutter/home/widget/buttonIcon.dart';
-import 'package:pos_flutter/home/widget/cartButton.dart';
-import 'package:pos_flutter/home/widget/productCard.dart';
+import 'package:pos_flutter/screens/home/data/food_data.dart';
+import 'package:pos_flutter/screens/home/model/cart_model.dart';
+import 'package:pos_flutter/screens/home/model/food_model.dart';
+import 'package:pos_flutter/screens/home/widget/buttonIcon.dart';
+import 'package:pos_flutter/screens/home/widget/cartButton.dart';
+import 'package:pos_flutter/screens/home/widget/productCard.dart';
 
 class HomeBody extends StatefulWidget {
   const HomeBody({super.key});

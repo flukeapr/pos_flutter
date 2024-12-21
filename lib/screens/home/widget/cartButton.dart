@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pos_flutter/home/model/cart_model.dart';
+import 'package:pos_flutter/screens/home/model/cart_model.dart';
 import 'package:intl/intl.dart';
 
 class CartButton extends StatelessWidget {
