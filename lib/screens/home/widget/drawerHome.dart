@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:pos_flutter/Colors/appColors.dart';
 import 'package:pos_flutter/screens/home/widget/listDrawer.dart';
 
+// ? drawer home side bar
 class DrawerHome extends StatelessWidget {
   const DrawerHome({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final primaryColor = Theme.of(context).primaryColor;
     return Drawer(
-        backgroundColor: primaryColor,
+        backgroundColor: AppColors.primaryColor,
         child: Column(
           children: [
             Container(
@@ -31,7 +32,7 @@ class DrawerHome extends StatelessWidget {
                               borderRadius: BorderRadius.circular(6)),
                           child: Icon(
                             Icons.flag,
-                            color: primaryColor,
+                            color: AppColors.primaryColor,
                           ),
                         ),
                         Text(
@@ -56,7 +57,7 @@ class DrawerHome extends StatelessWidget {
                           onPressed: () {},
                           child: Text("LITE",
                               style: TextStyle(
-                                  color: primaryColor, fontSize: 18))),
+                                  color: AppColors.primaryColor, fontSize: 18))),
                     )
                   ],
                 ),
@@ -146,7 +147,7 @@ class DrawerHome extends StatelessWidget {
                   onPressed: () {},
                   child: Text(
                     "UPGRADE TO PREMIUM",
-                    style: TextStyle(color: primaryColor, fontSize: 22),
+                    style: TextStyle(color: AppColors.primaryColor, fontSize: 22),
                   )),
             ),
           ],

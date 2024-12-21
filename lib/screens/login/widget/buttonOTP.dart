@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pos_flutter/Colors/appColors.dart';
 class ButtonOtp extends StatelessWidget {
   final String text;
   final IconData icon;
@@ -16,16 +17,12 @@ class ButtonOtp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     final Color primaryColor = Theme.of(context).primaryColor;
-    final Color secondary = Theme.of(context).colorScheme.secondary;
-    final double screenHeight = MediaQuery.of(context).size.height;
-    final double spacing = screenHeight * 0.08;
     return SizedBox(
       width: 150, 
       height: 45,
       child: ElevatedButton.icon(
         style: ElevatedButton.styleFrom(
-          backgroundColor: isSelected ? primaryColor : Colors.grey.shade200,
+          backgroundColor: isSelected ? AppColors.primaryColor : Colors.grey.shade200,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
@@ -33,13 +30,13 @@ class ButtonOtp extends StatelessWidget {
         onPressed: onPressed,
         icon: Icon(
                   icon,
-                  color: isSelected ? Colors.white : secondary,
+                  color: isSelected ? Colors.white : AppColors.secondaryColor,
                   size: 20,
                 ) ,
         label: Text(
           text,
           style:  TextStyle(
-            color: isSelected ? Colors.white : secondary,
+            color: isSelected ? Colors.white : AppColors.secondaryColor,
             fontSize: 16,
           ),
         ),

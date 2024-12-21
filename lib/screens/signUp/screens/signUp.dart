@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pos_flutter/Colors/appColors.dart';
 import 'package:pos_flutter/screens/signUp/model/model_signUp.dart';
 import 'dart:developer' as developer;
 
@@ -35,8 +36,6 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final primaryColor = Theme.of(context).primaryColor;
-    final secondary = Theme.of(context).colorScheme.secondary;
     final double screenHeight = MediaQuery.of(context).size.height;
     final double spacing = (screenHeight * 0.08) - 30;
     return Scaffold(
@@ -48,7 +47,7 @@ class _SignupScreenState extends State<SignupScreen> {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 30,
-            color: primaryColor,
+            color: AppColors.primaryColor,
           ),
         ),
         leading: IconButton(
@@ -59,7 +58,7 @@ class _SignupScreenState extends State<SignupScreen> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: primaryColor,
+                color: AppColors.primaryColor,
               ),
               child: const Icon(
                 Icons.arrow_back_ios,
@@ -81,7 +80,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   children: [
                     Text(
                       "Email",
-                      style: TextStyle(color: secondary, fontSize: 16,fontWeight:  FontWeight.w500),
+                      style: TextStyle(color: AppColors.secondaryColor, fontSize: 16,fontWeight:  FontWeight.w500),
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
@@ -115,7 +114,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   children: [
                     Text(
                       "Phone Number",
-                      style: TextStyle(color: secondary, fontSize: 16,fontWeight:  FontWeight.w500),
+                      style: TextStyle(color: AppColors.secondaryColor, fontSize: 16,fontWeight:  FontWeight.w500),
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
@@ -142,7 +141,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   children: [
                     Text(
                       "Password",
-                      style: TextStyle(color: secondary, fontSize: 16,fontWeight:  FontWeight.w500),
+                      style: TextStyle(color: AppColors.secondaryColor, fontSize: 16,fontWeight:  FontWeight.w500),
                     ),
                     const SizedBox(height: 8),
                    TextFormField(
@@ -160,7 +159,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         _obscureText
                             ? Icons.visibility_off_outlined
                             : Icons.visibility,
-                        color: secondary,
+                        color: AppColors.secondaryColor,
                       ),
                       onPressed: _toggleEye,
                     ),
@@ -177,7 +176,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   text: "Create Account",
                   onPressed: _submitForm,
                   isOutlined: false,
-                  primaryColor: primaryColor),
+                  primaryColor: AppColors.primaryColor),
             ],
           ),
         ),

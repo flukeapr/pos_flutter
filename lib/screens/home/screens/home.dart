@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pos_flutter/home/model/cart_model.dart';
-import 'package:pos_flutter/home/screens/favorite.dart';
+import 'package:pos_flutter/Colors/appColors.dart';
+import 'package:pos_flutter/screens/home/model/cart_model.dart';
+import 'package:pos_flutter/screens/home/screens/favorite.dart';
 import 'package:pos_flutter/screens/home/screens/home_body.dart';
 import 'package:pos_flutter/screens/home/screens/receipt.dart';
 import 'package:pos_flutter/screens/home/widget/drawerHome.dart';
@@ -32,7 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final Color primaryColor = Theme.of(context).primaryColor;
     final List<Widget> _page = [HomeBody(), FavoriteScreen(), ReceiptScreen()];
 
     return Scaffold(
@@ -49,17 +49,17 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 30,
-            color: primaryColor,
+            color: AppColors.primaryColor,
           ),
         ),
-        iconTheme: IconThemeData(color: primaryColor),
+        iconTheme: IconThemeData(color: AppColors.primaryColor),
         leading: IconButton(
           onPressed: () {
             _openDrawer();
           },
           icon: Icon(
             Icons.menu,
-            color: primaryColor,
+            color: AppColors.primaryColor,
             size: 30,
           ),
         ),
@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       icon: Icon(
                         Icons.space_dashboard,
                         color: _selectedIndex == 0
-                            ? primaryColor
+                            ? AppColors.primaryColor
                             : Colors.grey.shade400,
                         size: 40,
                       ),
@@ -102,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       icon: Icon(
                         Icons.star_rounded,
                         color: _selectedIndex == 1
-                            ? primaryColor
+                            ? AppColors.primaryColor
                             : Colors.grey.shade400,
                         size: 40,
                       ),
@@ -114,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       icon: Icon(
                         Icons.receipt_long,
                         color: _selectedIndex == 2
-                            ? primaryColor
+                            ? AppColors.primaryColor
                             : Colors.grey.shade400,
                         size: 40,
                       ),

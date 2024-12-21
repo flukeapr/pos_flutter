@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pos_flutter/Colors/appColors.dart';
 import 'package:pos_flutter/screens/onBoarding/screens/onBoarding.dart';
 import 'package:pos_flutter/provider/cart_provider.dart';
 import 'package:provider/provider.dart';
@@ -21,12 +22,8 @@ class MainApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primaryColor: Color(0xFF1A72DD),
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: Color(0xFF1A72DD),
-            secondary: Color(0xFF2A3256),
-          ),
-          useMaterial3: true,
+          primaryColor: AppColors.primaryColor,
+          useMaterial3: true
         ),
         home: const OnboardingScreen(),
       ),

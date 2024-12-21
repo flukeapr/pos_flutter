@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pos_flutter/home/screens/home.dart';
-import 'package:pos_flutter/login/model/login_model.dart';
+import 'package:pos_flutter/Colors/appColors.dart';
+import 'package:pos_flutter/screens/home/screens/home.dart';
+import 'package:pos_flutter/screens/login/model/login_model.dart';
 import 'package:pos_flutter/screens/login/widget/buttonOTP.dart';
 import 'package:pos_flutter/screens/login/widget/textfieldLogin.dart';
 import 'dart:developer' as developer;
@@ -37,8 +38,6 @@ class _LoginOwnerScreenState extends State<LoginOwnerScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final Color primaryColor = Theme.of(context).primaryColor;
-    final secondary = Theme.of(context).colorScheme.secondary;
     final double screenHeight = MediaQuery.of(context).size.height;
     final double spacing = (screenHeight * 0.08) - 30;
     return Scaffold(
@@ -50,7 +49,7 @@ class _LoginOwnerScreenState extends State<LoginOwnerScreen> {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 30,
-            color: primaryColor,
+            color: AppColors.primaryColor,
           ),
         ),
         leading: IconButton(
@@ -61,7 +60,7 @@ class _LoginOwnerScreenState extends State<LoginOwnerScreen> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: primaryColor,
+                color: AppColors.primaryColor,
               ),
               child: const Icon(
                 Icons.arrow_back_ios,
@@ -111,7 +110,7 @@ class _LoginOwnerScreenState extends State<LoginOwnerScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: Text("send an OTP",
                           style: TextStyle(
-                              color: secondary,
+                              color: AppColors.secondaryColor,
                               fontWeight: FontWeight.w500,
                               fontSize: 16))),
                   Row(
@@ -167,14 +166,14 @@ class _LoginOwnerScreenState extends State<LoginOwnerScreen> {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
                     },
                     isOutlined: false,
-                    primaryColor: primaryColor),
+                    primaryColor: AppColors.primaryColor),
                 SizedBox(height: spacing - 20),
                 Center(
                     child: Text("Forgot password?",
                         style: TextStyle(
 
                             decoration: TextDecoration.underline,
-                            color: primaryColor,
+                            color: AppColors.primaryColor,
                             fontWeight: FontWeight.w500,
                             fontSize: 16)
                             )

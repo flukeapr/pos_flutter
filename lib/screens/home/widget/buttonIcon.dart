@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pos_flutter/Colors/appColors.dart';
 
+// ? button icon of header side bar
 class ButtonIcon extends StatelessWidget {
   final IconData icon;
   final VoidCallback? onPressed;
@@ -11,7 +13,6 @@ class ButtonIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color secondary = Theme.of(context).colorScheme.secondary;
     final double widthScreen = MediaQuery.of(context).size.width;
     return Container(
       height: 60,
@@ -29,7 +30,7 @@ class ButtonIcon extends StatelessWidget {
         onPressed: onPressed,
         icon: Icon(
           icon,
-          color: secondary,
+          color: AppColors.secondaryColor,
           size: 25,
         ),
       ),

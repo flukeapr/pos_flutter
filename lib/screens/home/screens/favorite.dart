@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:pos_flutter/Colors/appColors.dart';
+import 'package:pos_flutter/screens/home/widget/cartButton.dart';
 
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final Color primaryColor = Theme.of(context).primaryColor;
-    final Color secondary = Theme.of(context).colorScheme.secondary;
     final double widthScreen = MediaQuery.of(context).size.width;
     return Container(
       alignment: Alignment.topCenter,
@@ -15,7 +15,7 @@ class FavoriteScreen extends StatelessWidget {
       child: Column(
         children: [
           // Header Bar
-          headerBar(widthScreen, secondary, context),
+          headerBar(widthScreen, AppColors.secondaryColor, context),
           // Product Grid/List View
           Expanded(
             child: GridView.builder(
@@ -83,7 +83,7 @@ class FavoriteScreen extends StatelessWidget {
                                   "Egg salad",
                                   style: TextStyle(
                                     fontSize: 18,
-                                    color: secondary,
+                                    color: AppColors.secondaryColor,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -112,7 +112,7 @@ class FavoriteScreen extends StatelessWidget {
                                       "฿ ${NumberFormat('#,###.00').format(520)}",
                                       style: TextStyle(
                                         fontSize: 22,
-                                        color: primaryColor,
+                                        color: AppColors.primaryColor,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -139,14 +139,14 @@ class FavoriteScreen extends StatelessWidget {
                             children: [
                               Icon(
                                 Icons.add,
-                                color: primaryColor,
+                                color: AppColors.primaryColor,
                                 size: 50,
                               ),
                               Text(
                                 "Add",
                                 style: TextStyle(
                                   fontSize: 22,
-                                  color: primaryColor,
+                                  color: AppColors.primaryColor,
                                   fontWeight: FontWeight.bold,
                                 ),
                               )
@@ -154,8 +154,11 @@ class FavoriteScreen extends StatelessWidget {
                           ),
                         );
                 }),
-          )
+          ),
           // Expanded(child: ProductGrid()),
+          CartButton(primaryColor: AppColors.primaryColor),
+          SizedBox(
+            height: 20,)
         ],
       ),
     );

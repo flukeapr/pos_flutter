@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pos_flutter/home/screens/home.dart';
-import 'package:pos_flutter/login/model/login_model.dart';
-import 'package:pos_flutter/screens/login/widget/buttonOTP.dart';
+import 'package:pos_flutter/Colors/appColors.dart';
+import 'package:pos_flutter/screens/home/screens/home.dart';
+import 'package:pos_flutter/screens/login/model/login_model.dart';
 import 'package:pos_flutter/screens/login/widget/textfieldLogin.dart';
-import 'package:pos_flutter/screens/signUp/screens/signUp.dart';
 import 'package:pos_flutter/widget/customButton.dart';
 import 'dart:developer' as developer;
 
@@ -30,8 +29,6 @@ class _LoginEmployeeScreenState extends State<LoginEmployeeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final Color primaryColor = Theme.of(context).primaryColor;
-    final secondary = Theme.of(context).colorScheme.secondary;
     final double screenHeight = MediaQuery.of(context).size.height;
     final double spacing = (screenHeight * 0.08) - 30;
     return Scaffold(
@@ -43,7 +40,7 @@ class _LoginEmployeeScreenState extends State<LoginEmployeeScreen> {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 30,
-            color: primaryColor,
+            color: AppColors.primaryColor,
           ),
         ),
         leading: IconButton(
@@ -54,7 +51,7 @@ class _LoginEmployeeScreenState extends State<LoginEmployeeScreen> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: primaryColor,
+                color: AppColors.primaryColor,
               ),
               child: const Icon(
                 Icons.arrow_back_ios,
@@ -102,7 +99,7 @@ class _LoginEmployeeScreenState extends State<LoginEmployeeScreen> {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
                     },
                     isOutlined: false,
-                    primaryColor: primaryColor),
+                    primaryColor: AppColors.primaryColor),
                 SizedBox(height: spacing - 20),
                 Center(
                     child: Container(
@@ -119,14 +116,14 @@ class _LoginEmployeeScreenState extends State<LoginEmployeeScreen> {
                         text:
                             'Use the cashier code which can be created by the owner in ',
                         style: TextStyle(
-                          color: primaryColor,
+                          color: AppColors.primaryColor,
                           
                         ),
                         children: <TextSpan>[
                           TextSpan(
                               text: 'Manage Store ->  \n',
                               style: TextStyle(
-                                color: secondary,
+                                color: AppColors.secondaryColor,
                                 fontWeight: FontWeight.w500,
                               )),
                               TextSpan(

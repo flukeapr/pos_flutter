@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pos_flutter/login/screens/login.dart';
+import 'package:pos_flutter/Colors/appColors.dart';
+import 'package:pos_flutter/screens/login/screens/login.dart';
 import 'package:pos_flutter/screens/signUp/screens/signUp.dart';
 import 'package:pos_flutter/widget/customButton.dart';
 
@@ -8,7 +9,6 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color primaryColor = Theme.of(context).primaryColor; // primary color of the app
     final double screenHeight = MediaQuery.of(context).size.height; // height of the screen
     final double spacing = screenHeight * 0.08; // 8% of the screen height
 
@@ -24,7 +24,7 @@ class OnboardingScreen extends StatelessWidget {
               style: TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
-                  color: primaryColor),
+                  color: AppColors.primaryColor),
             ),
             SizedBox(
               height: 30,
@@ -53,7 +53,7 @@ class OnboardingScreen extends StatelessWidget {
                           );
                 },
                 isOutlined: false,
-                primaryColor: primaryColor
+                primaryColor: AppColors.primaryColor
                 ),
             SizedBox(
               height: spacing -40,
@@ -68,7 +68,7 @@ class OnboardingScreen extends StatelessWidget {
                           );
                 },
                 isOutlined: true,
-                primaryColor: primaryColor
+                primaryColor: AppColors.primaryColor
                 ),
 
           ],

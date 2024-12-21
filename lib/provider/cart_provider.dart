@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pos_flutter/home/model/food_model.dart';
+import 'package:pos_flutter/screens/home/model/food_model.dart';
 
 class CartProvider extends ChangeNotifier{
    List<FoodModel> cartList = [];
@@ -25,6 +25,7 @@ class CartProvider extends ChangeNotifier{
 
   void clearCart() {
     cartList.clear();
+    notifyListeners();
   }
 
   int getCount() {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pos_flutter/Colors/appColors.dart';
 import 'package:pos_flutter/screens/login/screens/login_employee.dart';
 import 'package:pos_flutter/screens/login/screens/login_owner.dart';
 
@@ -13,8 +14,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final double widthButton = MediaQuery.of(context).size.width - 20;
-    final Color primaryColor = Theme.of(context).primaryColor;
-    final Color secondary = Theme.of(context).colorScheme.secondary;
     final double screenHeight  = MediaQuery.of(context).size.height;
     final double spacing = screenHeight * 0.08;
     final TextStyle boldUnderLine = const TextStyle(
@@ -31,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 30,
-              color: primaryColor,
+              color: AppColors.primaryColor,
             ),
           ),
           leading: IconButton(
@@ -42,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.all(6),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: primaryColor,
+                  color: AppColors.primaryColor,
                 ),
                 child: const Icon(
                   Icons.arrow_back_ios,
@@ -63,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
-                      color: secondary,
+                      color: AppColors.secondaryColor,
                     )),
                  Text.rich(TextSpan(
                   style: TextStyle(
@@ -74,20 +73,20 @@ class _LoginScreenState extends State<LoginScreen> {
                     TextSpan(
                       text: "I am an owner ",
                       style: TextStyle(
-                        color: primaryColor,
+                        color: AppColors.primaryColor,
                         decoration: TextDecoration.underline,
                         fontWeight: FontWeight.bold,
-                        decorationColor: primaryColor,
+                        decorationColor: AppColors.primaryColor,
                       ),
                     ),
                     TextSpan(text: "or "),
                     TextSpan(
                       text: " I am an employee",
                       style: TextStyle(
-                        color: primaryColor,
+                        color: AppColors.primaryColor,
                         decoration: TextDecoration.underline,
                         fontWeight: FontWeight.bold,
-                        decorationColor: primaryColor,
+                        decorationColor: AppColors.primaryColor,
                       ),
                       ),
                      TextSpan(text: " to start"),
@@ -107,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 60,
                     child: ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: primaryColor,
+                            backgroundColor: AppColors.primaryColor,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15))),
                         onPressed: () {
@@ -148,7 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 60,
                     child: ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: primaryColor,
+                            backgroundColor: AppColors.primaryColor,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15))),
                         onPressed: () {
@@ -191,9 +190,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       TextSpan(
                           text: 'Create a new account',
                           style: TextStyle(
-                            color: primaryColor,
+                            color: AppColors.primaryColor,
                             decoration: TextDecoration.underline,
-                            decorationColor: primaryColor,
+                            decorationColor: AppColors.primaryColor,
                           )),
                       // can add more TextSpans here...
                     ],

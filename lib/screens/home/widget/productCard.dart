@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:pos_flutter/screens/home/model/cart_model.dart';
 import 'package:pos_flutter/screens/home/model/food_model.dart';
 
+// ? productCard of grid view  : animated scale
 class ProductCard extends StatefulWidget {
   final FoodModel food;
   final int index;
-  final CartModel cartModel;
   final int crossAxisCount;
   final Function onAddToCart;
   final Color primaryColor;
@@ -15,7 +14,6 @@ class ProductCard extends StatefulWidget {
     Key? key,
     required this.food,
     required this.index,
-    required this.cartModel,
     required this.crossAxisCount,
     required this.onAddToCart,
     required this.primaryColor,
@@ -100,7 +98,7 @@ class _ProductCardState extends State<ProductCard> {
                           ),
                         ),
                         //Condition
-                        if (widget.index == 0 || widget.index == 3)
+                       
                           Padding(
                             padding: const EdgeInsets.only(left: 8.0),
                             child: Text(
@@ -111,12 +109,14 @@ class _ProductCardState extends State<ProductCard> {
                               ),
                             ),
                           ),
+
                       ],
                     ),
+                   
                     // Price and Add Button
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [

@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:pos_flutter/screens/home/model/cart_model.dart';
+import 'package:pos_flutter/provider/cart_provider.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
+// ? cart button slide bottom grid view when add to cart item list
 class CartButton extends StatelessWidget {
-  final CartModel cartModel;
   final Color primaryColor ;
   const CartButton({
     Key? key,
-    required this.cartModel,
     required this.primaryColor
   }):super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final cartModel = context.watch<CartProvider>();
     return AnimatedSlide(
             offset: cartModel.getCount() > 0 ? Offset(0, 0) : Offset(0, 1), 
             duration: Duration(milliseconds: 300),

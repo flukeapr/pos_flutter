@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:pos_flutter/Colors/appColors.dart';
+import 'package:pos_flutter/provider/cart_provider.dart';
 import 'package:pos_flutter/screens/home/data/food_data.dart';
 import 'package:pos_flutter/screens/home/model/cart_model.dart';
 import 'package:pos_flutter/screens/home/model/food_model.dart';
 import 'package:pos_flutter/screens/home/widget/buttonIcon.dart';
 import 'package:pos_flutter/screens/home/widget/cartButton.dart';
 import 'package:pos_flutter/screens/home/widget/productCard.dart';
+import 'package:provider/provider.dart';
 
 class HomeBody extends StatefulWidget {
   const HomeBody({super.key});
@@ -38,17 +41,13 @@ class _HomeBodyState extends State<HomeBody> {
   }
 
   void addToCart(FoodModel food) {
-    setState(() {
-      cartModel.addToCart(food);
-    });
+    
   }
 
   @override
   Widget build(BuildContext context) {
-    final Color primaryColor = Theme.of(context).primaryColor;
-    final Color secondary = Theme.of(context).colorScheme.secondary;
     final double widthScreen = MediaQuery.of(context).size.width;
-
+    final cartModel = context.watch<CartProvider>();
     return Container(
       alignment: Alignment.topCenter,
       padding: const EdgeInsets.only(top: 1),
@@ -56,7 +55,11 @@ class _HomeBodyState extends State<HomeBody> {
         children: [
           // Header Bar
           headerBar(
-              widthScreen, secondary, _crossAxisCount, changeLayout, context),
+              widthScreen,
+              AppColors.secondaryColor,
+              _crossAxisCount,
+              changeLayout,
+              context),
           // Product Grid/List View
           Expanded(
             child: GridView.builder(
@@ -72,20 +75,20 @@ class _HomeBodyState extends State<HomeBody> {
               itemBuilder: (context, index) {
                 FoodModel food = FoodData.foodList[index];
                 return ProductCard(
-                  cartModel: cartModel,
                   food: food,
                   index: index,
                   crossAxisCount: _crossAxisCount,
-                  primaryColor: primaryColor,
-                  secondary: secondary,
-                  onAddToCart: () => addToCart(food),
+                  primaryColor: AppColors.primaryColor,
+                  secondary: AppColors.secondaryColor,
+                  onAddToCart: (){
+                    cartModel.addToCart(food);
+                  },
                 );
               },
             ),
           ),
           CartButton(
-            cartModel: cartModel,
-            primaryColor: primaryColor,
+            primaryColor: AppColors.primaryColor,
           ),
           SizedBox(
             height: 20,
